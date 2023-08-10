@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+import { useQuery, gql } from '@apollo/client'
+import { GET_ME } from '../utils/mutations'
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
 import Auth from '../utils/auth';
 
+const GET_USERS = gql`
+query QUERY{
+  users{
+    username
+  }
+}
+`
+
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
+
+  const { loading, error, data } = useQuery(GET_ME);
+
 
   return (
     <>
