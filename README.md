@@ -1,6 +1,6 @@
 # Book Search Engine
 
-Welcome to the Book Search Engine! Dive into a world of books with our intuitive platform, designed for book enthusiasts who wish to quickly search, view, and save their favorite reads.
+Welcome to the Book Search Engine!
 
 ## Table of Contents
 
