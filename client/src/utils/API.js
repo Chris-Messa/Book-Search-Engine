@@ -1,14 +1,14 @@
-const graphqlRequest = async (query, variables = {}) => {
-  const response = await fetch('/graphql', {
-    method: 'POST',
+import { auth } from '../utils/auth'
+
+export const deleteBook = (bookId, token) => {
+  return fetch(`/api/users/books/${bookId}`, {
+    method: 'DELETE',
     headers: {
-      'Content-Type': 'application/json',
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ query, variables }),
   });
-
-  return response.json();
 };
 
-export default graphqlRequest;
+export const searchGoogleBooks = (query) => {
+  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+};
